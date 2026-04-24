@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marion Lagadic — Feminist Economic Geographer</title>
+  <meta name="description" content="Marion Lagadic is a feminist economic geographer working on urban political economy, gender and everyday urban life. DPhil candidate at Oxford and Policy Analyst at the OECD." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Tokens ---------- */
+    :root {
+      --bg: #faf7f2;
+      --bg-soft: #f2ede2;
+      --ink: #1f1d1a;
+      --ink-muted: #5a5752;
+      --rule: #e6e0d1;
+      --accent: #7a3b2f;        /* deep terracotta */
+      --accent-soft: #f4e9e3;
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans:  "Source Sans 3", system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+      --max: 1100px;
+    }
+
+    /* ---------- Reset-ish ---------- */
+    *,*::before,*::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(122,59,47,0.25); transition: border-color .15s ease, color .15s ease; }
+    a:hover { border-bottom-color: var(--accent); }
+    img { max-width: 100%; display: block; }
+    h1,h2,h3,h4 { font-family: var(--serif); font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250,247,242,0.92);
+      backdrop-filter: saturate(140%) blur(8px);
+      -webkit-backdrop-filter: saturate(140%) blur(8px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      border: none;
+    }
+    .brand span { color: var(--accent); }
+    .nav ul {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; gap: 22px; flex-wrap: wrap;
+    }
+    .nav a {
+      font-size: 14.5px;
+      color: var(--ink-muted);
+      border: none;
+      letter-spacing: 0.01em;
+    }
+    .nav a:hover { color: var(--accent); }
+
+    /* ---------- Layout ---------- */
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+    section { padding: 72px 0; border-bottom: 1px solid var(--rule); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-family: var(--sans);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 0 10px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.2vw, 38px);
+      margin: 0 0 36px;
+      line-height: 1.15;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero { padding-top: 64px; padding-bottom: 56px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 56px;
+      align-items: start;
+    }
+    .hero-head {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .portrait {
+      /* Replace the background with a real photo:
+         background: url('headshot.jpg') center/cover no-repeat;
+         Then remove the .portrait span. */
+      flex: none;
+      width: 108px; height: 108px;
+      border-radius: 50%;
+      background: var(--bg-soft);
+      border: 1px solid var(--rule);
+      display: grid; place-items: center;
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 36px;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .name {
+      font-size: clamp(36px, 4.5vw, 52px);
+      line-height: 1.05;
+      margin: 0 0 6px;
+      font-weight: 500;
+    }
+    .tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--ink-muted);
+      font-size: 18px;
+      margin: 0;
+    }
+    .intro p { margin: 0 0 14px; color: #2b2a28; }
+    .intro p:last-child { margin-bottom: 0; }
+
+    /* News panel */
+    .news {
+      background: var(--bg-soft);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 22px 24px 24px;
+      position: sticky;
+      top: 80px;
+    }
+    .news h3 {
+      margin: 0 0 14px;
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .news h3::before {
+      content: "";
+      display: inline-block;
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .news ul { list-style: none; padding: 0; margin: 0; }
+    .news li {
+      font-size: 14.5px;
+      line-height: 1.5;
+      padding: 10px 0;
+      border-top: 1px dashed var(--rule);
+      color: var(--ink);
+    }
+    .news li:first-child { border-top: none; padding-top: 0; }
+    .news li:last-child { padding-bottom: 0; }
+    .news .date {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    /* ---------- Research ---------- */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .lede {
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.45;
+      color: var(--ink);
+      margin: 0 0 24px;
+    }
+    .interests {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .interests li {
+      font-size: 13.5px;
+      padding: 5px 12px;
+      background: var(--accent-soft);
+      border: 1px solid #ead8cf;
+      border-radius: 999px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ---------- Work in Progress / Publications ---------- */
+    .wip { display: grid; gap: 28px; }
+    .paper {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px dashed var(--rule);
+    }
+    .paper:last-child { border-bottom: none; padding-bottom: 0; }
+    .paper-meta {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 600;
+      padding-top: 4px;
+    }
+    .paper h3 {
+      font-size: 20px;
+      margin: 0 0 8px;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .paper h3 em { font-style: italic; }
+    .paper p { margin: 0; color: var(--ink-muted); font-size: 15.5px; }
+    .paper .journal {
+      display: block;
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--ink);
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .pub-group { margin-bottom: 44px; }
+    .pub-group:last-child { margin-bottom: 0; }
+    .pub-group h3 {
+      font-family: var(--sans);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin: 0 0 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .pub-list { list-style: none; padding: 0; margin: 0; }
+    .pub-list li {
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--rule);
+      font-size: 15.5px;
+      line-height: 1.55;
+    }
+    .pub-list li:last-child { border-bottom: none; }
+    .pub-list .title { font-weight: 500; color: var(--ink); }
+    .pub-list .venue {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--ink-muted);
+    }
+
+    /* ---------- Teaching ---------- */
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .teaching-card h3 {
+      font-size: 20px;
+      margin: 0 0 6px;
+      font-weight: 500;
+    }
+    .teaching-card .sub {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--ink-muted);
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    .teaching-card ul { padding-left: 18px; margin: 0; }
+    .teaching-card li { margin-bottom: 6px; color: var(--ink); font-size: 15.5px; }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      text-align: center;
+      padding: 96px 0 80px;
+    }
+    .contact h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      margin: 0 0 16px;
+    }
+    .contact p { color: var(--ink-muted); max-width: 580px; margin: 0 auto 24px; }
+    .email {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.8vw, 30px);
+      font-style: italic;
+    }
+    .links {
+      margin-top: 28px;
+      display: flex; justify-content: center; gap: 22px; flex-wrap: wrap;
+    }
+    .links a {
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: none;
+      color: var(--ink-muted);
+    }
+    .links a:hover { color: var(--accent); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 24px 28px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-align: center;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .news { position: static; }
+      .two-col { grid-template-columns: 1fr; gap: 28px; }
+      .teaching-grid { grid-template-columns: 1fr; gap: 28px; }
+      .paper { grid-template-columns: 1fr; gap: 8px; }
+      .paper-meta { padding-top: 0; }
+      section { padding: 56px 0; }
+    }
+    @media (max-width: 560px) {
+      .hero-head { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .wrap, .nav-inner { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =================== NAV =================== -->
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="#top" class="brand">Marion <span>Lagadic</span></a>
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#wip">Work in Progress</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <!-- Replace with a real CV PDF link when ready -->
+        <li><a href="CV_LAGADIC.pdf" target="_blank" rel="noopener">CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- =================== HERO =================== -->
+  <header id="top" class="hero">
+    <div class="wrap">
+      <div class="hero-head">
+        <!-- To use a real photo, replace the span text with nothing and add a background-image via inline style or class override. -->
+        <div class="portrait" aria-hidden="true" style="background: url('headshot.jpeg') center/cover no-repeat;"></div>
+        <div>
+          <h1 class="name">Marion Lagadic</h1>
+          <p class="tagline">Feminist economic geographer — urban political economy, gender &amp; everyday urban life</p>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="intro">
+       <p>Hello, and welcome. I am a feminist economic geographer working on urban mobilities, care and inequalities, with a particular focus on how gendered divisions of labour shape everyday life in cities. My research examines how labour market structures, welfare arrangements and cultural norms organise work and care, and how these dynamics are lived and negotiated through everyday mobility practices. Grounded empirically in Tokyo, I use cycling as an entry point to analyse how mobility is embedded in context-specific political economies of gender, and to develop a comparative perspective across different urban, cultural, and political contexts.</p>
+
+<p>I am currently completing a DPhil in Sustainable Urban Development at the University of Oxford (submission June 2026), while working as a Policy Analyst and Project Manager at the OECD on inclusive urban development and transport policy. Alongside this, I am a lecturer and course convener at Sciences Po, where I deliver a Master’s-level course on inclusive urban mobility planning, combining theoretical approaches with applied and experiential learning formats.</p>
+
+<p>Before joining the OECD, I was Scientific Director at 6t, a Paris-based research bureau specialising in sustainable mobility, where I led applied research for public authorities and private stakeholders. I was trained at Sciences Po, the London School of Economics (MSc in Regional and Urban Planning Studies), and the University of Oxford.</p>
+        </div>
+
+        <aside class="news" aria-label="News and updates">
+          <h3>News &amp; Updates</h3>
+<ul>
+  <li>
+    <span class="date">Under review</span>
+    "“More helpful than Dad?” Mamachari cycling, motherhood and agency in Tokyo" submitted to <em>Gender, Place &amp; Culture</em>
+  </li>
+  <li>
+    <span class="date">2025</span>
+    Policy paper with MLIT on the role of transport in easing childcare — 
+    <a href="https://www.mlit.go.jp/pri/results/gaiyou/pdf/250122.pdf" target="_blank" rel="noopener">read it</a>
+  </li>
+  <li>
+    <span class="date">2024</span>
+    Co-authored <em>Reaching Critical MaaS: Interregional Co-operation for Seamless Mobility in the Brussels-Capital Region</em> (OECD Publishing) — 
+    <a href="https://www.itf-oecd.org/reaching-critical-maas-seamless-mobility-brussels" target="_blank" rel="noopener">read it</a> 
+    or 
+    <a href="https://www.youtube.com/watch?v=2VK_jaEANH4" target="_blank" rel="noopener">watch it</a>
+  </li>
+  <li>
+    <span class="date">Jul 2024</span>
+    Presented to the Japanese Ministry of Land, Infrastructure, Transport and Tourism (MLIT) on transport and parental wellbeing — 
+    <a href="https://youtu.be/RIk6zXJdWNc?t=7507" target="_blank" rel="noopener">watch it</a>
+  </li>
+</ul>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- =================== RESEARCH =================== -->
+  <section id="research">
+    <div class="wrap">
+      <p class="section-label">Research</p>
+      <h2 class="section-title">A feminist economic geography of cycling in Tokyo</h2>
+
+      <div class="two-col">
+        <div>
+          <p class="lede">My doctoral research sits at the intersection of urban political economy and feminist geography. It asks how labour-market structures, welfare arrangements and cultural norms organise paid and unpaid work in Tokyo — and how those arrangements shape the embodied experience and meanings of cycling as an everyday urban practice.</p>
+          <p>Drawing on qualitative fieldwork with fifty participants in Tokyo — combining audio travel diaries, in-depth interviews and mobility biographies — I argue that cycling becomes a strategy through which women with caring responsibilities develop agency under conditions of structural inequality. That agency, in turn, makes them dependent on the bicycle even when riding conditions are poor.</p>
+          <p>The thesis engages critically with the largely Western-centric literature on gender disparities in cycling uptake, using Tokyo not as an exceptional case but as a vantage point for rethinking how cycling, care and gender are theorised across world regions. In this sense the work speaks to wider debates on comparative and transnational urbanism — on how macro political-economic structures and circulating urban models interact with locally embedded practices that reproduce context-specific forms of gender inequality. It argues for a fundamental reconsideration of <em>care</em> in transport planning: not a contextual constraint reducible to trip-chaining or time pressures, but a force that structures the affective, cognitive and embodied experience of moving through urban space.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 15px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-muted); font-family: var(--sans); font-weight: 600; margin: 6px 0 14px;">Research interests</h3>
+          <ul class="interests">
+            <li>Urban political economy</li>
+            <li>Comparative &amp; transnational urbanism</li>
+            <li>Gender, care &amp; social reproduction</li>
+            <li>Everyday urban life</li>
+            <li>Urban mobilities</li>
+            <li>Asian cities (Japan)</li>
+            <li>Urban inequalities</li>
+            <li>Transport policy &amp; planning</li>
+          </ul>
+
+          <h3 style="font-size: 15px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-muted); font-family: var(--sans); font-weight: 600; margin: 32px 0 14px;">Methods</h3>
+          <p style="margin: 0; color: var(--ink-muted); font-size: 15.5px;">Mobile methods including audio travel diaries, mobility biographies and in-depth interviews; comparative policy analysis; participatory workshops. Fieldwork conducted in Japanese.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== WORK IN PROGRESS =================== -->
+  <section id="wip">
+    <div class="wrap">
+      <p class="section-label">Work in Progress</p>
+      <h2 class="section-title">Three articles drawn from the Tokyo fieldwork</h2>
+
+      <div class="wip">
+        <article class="paper">
+          <div class="paper-meta">Under Review</div>
+          <div>
+            <span class="journal">Gender, Place &amp; Culture</span>
+            <h3>"More helpful than Dad?" Mamachari cycling, motherhood and agency in Tokyo</h3>
+            <p>Argues that mothers' reliance on cycling in Tokyo is shaped by structural gender inequalities. Cycling enhances everyday agency in managing care and work, while simultaneously reflecting and sustaining the gendered organisation of social reproduction.</p>
+          </div>
+        </article>
+
+        <article class="paper">
+          <div class="paper-meta">In Preparation</div>
+          <div>
+            <span class="journal">Mobilities</span>
+            <h3>"I just ride as I feel": Care on the move and the gendered experience of cycling space in Tokyo</h3>
+            <p>Examines how childcare responsibilities are carried through cycling and reshape women's embodied and spatial engagement with urban environments. Care-based mobilities rely on flexible, negotiated uses of space that reveal the limits of infrastructure-centred explanations of gendered cycling.</p>
+          </div>
+        </article>
+
+        <article class="paper">
+          <div class="paper-meta">In Preparation</div>
+          <div>
+            <span class="journal">Urban Studies</span>
+            <h3>Whose cycling counts? The gendered making of cycling policy in Tokyo</h3>
+            <p>Analyses how Tokyo's cycling policy privileges productive mobility over care-based mobility through gender-insensitive narratives, knowledge practices and technocratic governance.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== PUBLICATIONS =================== -->
+  <section id="publications">
+    <div class="wrap">
+      <p class="section-label">Publications</p>
+      <h2 class="section-title">Selected publications</h2>
+
+      <div class="pub-group">
+        <h3>Peer-reviewed articles</h3>
+        <ul class="pub-list">
+          <li>
+            Lagadic, M. (2019). <span class="title">Along the London Overground: Transport improvements, gentrification, and symbolic ownership along London's trendiest line.</span> <span class="venue">City &amp; Community</span>, 18(3), 1003–1027. <a href="https://doi.org/10.1111/cico.12414" target="_blank" rel="noopener">DOI</a>
+          </li>
+          <li>
+            Chan, D., Howard, D., Klages, C., Lagadic, M., Papallas, A., Ruiz Del Portal, A. &amp; Youngs, J. (2023). <span class="title">Sustainable urban development research in the time of COVID-19: reflections from doctoral researchers.</span> <span class="venue">Journal of Geography in Higher Education</span>. <a href="https://doi.org/10.1080/03098265.2023.2228540" target="_blank" rel="noopener">DOI</a>
+          </li>
+          <li>
+            Bajolle, H., Chrétien, J., Lagadic, M., &amp; Louvet, N. (2023). <span class="title">Planning for speed in the public space: the case of speed e-bikes in France, Belgium, and Switzerland.</span> <span class="venue">Transportation Research Record</span>, 2677(2), 1659–1670. <a href="https://doi.org/10.1177/03611981221109183" target="_blank" rel="noopener">DOI</a>
+          </li>
+          <li>
+            Bajolle, H., Lagadic, M., &amp; Louvet, N. (2022). <span class="title">The future of lithium-ion batteries: exploring expert conceptions, market trends and price scenarios.</span> <span class="venue">Energy Research &amp; Social Sciences</span>, 102850. <a href="https://doi.org/10.1016/j.erss.2022.102850" target="_blank" rel="noopener">DOI</a>
+          </li>
+          <li>
+            Krier, C., Chrétien, J., Lagadic, M., &amp; Louvet, N. (2021). <span class="title">How do shared dockless e-scooter services affect mobility practices in Paris? A survey-based estimation of modal shift.</span> <span class="venue">Transportation Research Record</span>, 2675(11), 291–304. <a href="https://doi.org/10.1177/03611981211017133" target="_blank" rel="noopener">DOI</a>
+          </li>
+          <li>
+            Lagadic, M., Verloes, A., &amp; Louvet, N. (2019). <span class="title">Can carsharing services be profitable? A critical review of established and developing business models.</span> <span class="venue">Transport Policy</span>, 77, 68–78. <a href="https://doi.org/10.1016/j.tranpol.2019.02.006" target="_blank" rel="noopener">DOI</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="pub-group">
+        <h3>Policy reports</h3>
+        <ul class="pub-list">
+          <li>
+            Lagadic, M., &amp; Sawamura, H. (2025). <span class="title">The role of transport in easing childcare: transport policy's contribution to addressing the fertility crisis in Japan.</span> <span class="venue">MLIT Policy Research Institute discussion paper</span>. <a href="https://www.mlit.go.jp/pri/results/gaiyou/pdf/250122.pdf" target="_blank" rel="noopener">PDF</a>
+          </li>
+          <li>
+            Doherty, E., Kergonou, T., Lagadic, M., Lombardi, A., &amp; Viros, C. (2025). <span class="title">Cities for All Ages.</span> <span class="venue">OECD Publishing</span>. <a href="https://www.oecd.org/en/publications/cities-for-all-ages_f0c8fefa-en.html" target="_blank" rel="noopener">Link</a>
+          </li>
+          <li>
+            Lagadic, M., Macharia, J., &amp; Olczak, M. (2023). <span class="title">Assessing gender equality in transport policies.</span> In <span class="venue">Joining Forces for Gender Equality: What is Holding us Back?</span> OECD Publishing. <a href="https://doi.org/10.1787/67d48024-en" target="_blank" rel="noopener">DOI</a>
+          </li>
+          <li>
+            Lagadic, M., Crist, P., &amp; Combe, C. (2024). <span class="title">Reaching Critical MaaS: Interregional Co-operation for Seamless Mobility in the Brussels-Capital Region.</span> <span class="venue">OECD Publishing</span>. <a href="https://www.itf-oecd.org/reaching-critical-maas-seamless-mobility-brussels" target="_blank" rel="noopener">Link</a>
+          </li>
+          <li>
+            Craglia, M., Kopf, A., &amp; Lagadic, M. (2024). <span class="title">Advancing Sustainable Mobility in Greece: Promoting the Uptake of Electric Vehicles.</span> <span class="venue">OECD Publishing</span>. <a href="https://www.itf-oecd.org/advancing-sustainable-mobility-greece-electric-vehicles-summary" target="_blank" rel="noopener">Link</a>
+          </li>
+          <li>
+            Lagadic, M., Krier, C., &amp; Louvet, N. (2021). <span class="title">Micromobility for all: a roadmap towards inclusive micromobility.</span> <span class="venue">6t bureau de recherche for Voi</span>. <a href="https://www.voi.com/blog/making-mobility-accessible-to-all" target="_blank" rel="noopener">Link</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== TEACHING =================== -->
+  <section id="teaching">
+    <div class="wrap">
+      <p class="section-label">Teaching</p>
+      <h2 class="section-title">Teaching &amp; supervision</h2>
+
+      <div class="teaching-grid">
+        <div class="teaching-card">
+          <h3>Course convenor &amp; lecturer</h3>
+          <p class="sub">Sciences Po Paris, 2023–present (now in its fourth year)</p>
+          <p>I designed and deliver an original Masters-level course on <em>inclusive urban mobility planning</em>. The course asks students to critically interrogate policies framed as "inclusive" by examining their underlying assumptions, reconstructing the perspectives of different stakeholders, and assessing their implications for different social groups.</p>
+          <p>Teaching combines conceptual material with experiential learning — including role-play, structured presentations and debates in which students develop and defend their own policy orientations and articulate the trade-offs they faced. The full syllabus, readings and assessment structure are my own design.</p>
+        </div>
+
+        <div class="teaching-card">
+          <h3>Guest lectures</h3>
+          <p class="sub">Undergraduate &amp; postgraduate audiences across European institutions</p>
+          <ul>
+            <li><strong>Vienna University of Technology</strong> — A gendered cycling culture: the case of Tokyo</li>
+            <li><strong>Ihedate</strong> (Sciences Po executive programme) — Inclusion and equity in urban transport policy</li>
+            <li><strong>Paris-Belleville School of Architecture</strong> — Introduction to mobilities research through Tokyo</li>
+            <li><strong>HafenCity Universität Hamburg</strong> — Shared micromobility: users, patterns and governance</li>
+            <li><strong>Université Lyon 2</strong> — Alternative mobility and shared mobility services</li>
+            <li><strong>Sciences Po Paris</strong> — Congestion charging, toll taxing and environmental taxes</li>
+          </ul>
+        </div>
+
+        <div class="teaching-card">
+          <h3>Supervision, mentoring &amp; pastoral support</h3>
+          <p class="sub">Sciences Po and applied research contexts</p>
+          <p>I supervised a Master's dissertation at Sciences Po's Executive Master's in Territorial Governance and Urban Development, providing one-to-one guidance on research design, methodology and academic writing. Alongside this, I bring over a decade of experience mentoring junior researchers and project managers in applied research settings — including structured feedback, capacity-building, and helping colleagues navigate professional and intellectual challenges.</p>
+        </div>
+
+        <div class="teaching-card">
+          <h3>Languages of instruction</h3>
+          <p class="sub">Teaching languages</p>
+          <p>I teach in English and French, and have given invited academic presentations in Spanish and Japanese. I have experience conducting research interviews in English, French, Japanese and Spanish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CONTACT =================== -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="section-label">Contact</p>
+      <h2>Get in touch</h2>
+      <p>I'm always happy to hear from colleagues and prospective collaborators interested in feminist urban geography, gender and mobility, or comparative urban policy. If you're in Paris, London or Oxford, drop me a line.</p>
+      <p class="email"><a href="mailto:marion.lagadic@kellogg.ox.ac.uk">marion.lagadic@kellogg.ox.ac.uk</a></p>
+      <div class="links">
+  <a href="https://scholar.google.com/citations?user=5_2CjAMAAAAJ&hl=fr" target="_blank" rel="noopener">Google Scholar</a>
+  <a href="https://orcid.org/0000-0002-0209-0949" target="_blank" rel="noopener">ORCID</a>
+  <a href="https://www.linkedin.com/in/marion-lagadic/" target="_blank" rel="noopener">LinkedIn</a>
+  <a href="https://www.lifelong-learning.ox.ac.uk/profiles/student-spotlight-marion-lagadic" target="_blank" rel="noopener">Oxford profile</a>
+</div>
+  </section>
+
+  <footer>
+    &copy; <span id="year">2026</span> Marion Lagadic. Built as a static page — hosted on GitHub Pages.
+  </footer>
+
+  <script>
+    // Set copyright year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
